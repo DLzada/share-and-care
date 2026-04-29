@@ -5,7 +5,9 @@ import br.com.daniel.share_and_care.dto.CategoriaRequestDTO;
 import br.com.daniel.share_and_care.repository.CategoriaRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -26,5 +28,10 @@ public class CategoriaService {
 
     public List<Categoria> listarTodas(){
         return categoriaRepository.findAll();
+    }
+
+    public Categoria buscarPorId(Long id){
+        return categoriaRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoria nao Encontrada!"));
     }
 }
