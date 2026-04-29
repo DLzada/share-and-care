@@ -14,17 +14,29 @@ import java.util.List;
 @RequestMapping("/categorias")
 @AllArgsConstructor
 public class CategoriaController {
-    private final CategoriaService service;
+    private final CategoriaService categoriaService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Categoria criar(@RequestBody @Valid CategoriaRequestDTO dto){
-        return service.salvar(dto);
+        return categoriaService.salvar(dto);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Categoria> listarTodas(){
-        return service.listarTodas();
+        return categoriaService.listarTodas();
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Categoria atualizar(@PathVariable Long id){
+        return categoriaService.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Categoria atualizar(@PathVariable Long id, @RequestBody @Valid CategoriaRequestDTO dto){
+        return categoriaService.atualizar(id, dto);
     }
 }
