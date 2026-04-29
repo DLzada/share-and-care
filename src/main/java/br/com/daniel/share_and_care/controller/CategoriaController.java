@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/categorias")
 @AllArgsConstructor
@@ -18,5 +20,11 @@ public class CategoriaController {
     @ResponseStatus(HttpStatus.CREATED)
     public Categoria criar(@RequestBody @Valid CategoriaRequestDTO dto){
         return service.salvar(dto);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<Categoria> listarTodas(){
+        return service.listarTodas();
     }
 }
