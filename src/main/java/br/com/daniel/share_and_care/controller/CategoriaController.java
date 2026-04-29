@@ -39,4 +39,10 @@ public class CategoriaController {
     public Categoria atualizar(@PathVariable Long id, @RequestBody @Valid CategoriaRequestDTO dto){
         return categoriaService.atualizar(id, dto);
     }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletar(@PathVariable Long id){
+        categoriaService.deletar(id);
+    }
 }
