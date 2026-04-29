@@ -1,20 +1,18 @@
 package br.com.daniel.share_and_care.domain;
 
-import br.com.daniel.share_and_care.domain.enums.TipoDoador;
+import br.com.daniel.share_and_care.domain.enums.UnidadeMedida;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "doadores")
+@Table(name = "itens")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Doador {
+public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -23,10 +21,10 @@ public class Doador {
     private String nome;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_doador", nullable = false)
-    private TipoDoador tipoDoador;
+    @Column(name = "unidade_medida", nullable = false)
+    private UnidadeMedida unidadeMedida;
 
-    @CreationTimestamp
-    @Column(name = "data_cadastro")
-    private LocalDateTime dataCadastro;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 }
