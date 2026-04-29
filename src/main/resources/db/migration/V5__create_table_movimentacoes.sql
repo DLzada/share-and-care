@@ -6,6 +6,6 @@ CREATE TABLE movimentacoes(
     quantidade INT NOT NULL,
     data_movimentacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     observacao VARCHAR(255),
-    CONSTRAINT fk_item_movimentado FOREIGN KEY (item_id) REFERENCES itens(id)
+    CONSTRAINT fk_item_movimentado FOREIGN KEY (item_id) REFERENCES itens(id),
     CONSTRAINT fk_doador_movimentacao FOREIGN KEY (doador_id) REFERENCES doadores(id)
 );
