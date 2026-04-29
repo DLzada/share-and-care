@@ -34,4 +34,14 @@ public class CategoriaService {
         return categoriaRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoria nao Encontrada!"));
     }
+
+    @Transactional
+    public Categoria atualizar(Long id, CategoriaRequestDTO dto){
+        Categoria categoria = buscarPorId(id);
+
+        categoria.setNome(dto.nome());
+        categoria.setDescricao(dto.descricao());
+
+        return categoriaRepository.save(categoria);
+    }
 }
