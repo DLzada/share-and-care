@@ -4,4 +4,4 @@ CREATE TABLE doadores (
     contato VARCHAR(100),
     tipo_doador VARCHAR(20) NOT NULL,
     data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)
+);
