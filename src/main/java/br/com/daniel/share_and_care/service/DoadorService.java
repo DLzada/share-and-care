@@ -19,6 +19,6 @@ public class DoadorService {
         doador.setContato(dto.contato());
         doador.setTipoDoador(dto.tipoDoador());
 
-        doadorRepository.save(doador);
+        return doadorRepository.save(doador);
     }
 }
