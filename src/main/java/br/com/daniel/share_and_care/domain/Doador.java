@@ -22,6 +22,9 @@ public class Doador {
     @Column(nullable = false, length = 150)
     private String nome;
 
+    @Column(length = 100)
+    private String contato;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_doador", nullable = false)
     private TipoDoador tipoDoador;
