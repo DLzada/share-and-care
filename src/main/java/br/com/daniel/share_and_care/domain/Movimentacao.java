@@ -1,5 +1,6 @@
 package br.com.daniel.share_and_care.domain;
 
+import br.com.daniel.share_and_care.domain.enums.TipoMovimentacao;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,6 +27,10 @@ public class Movimentacao {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doador_id")
     private Doador doador;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TipoMovimentacao tipo;
 
     @Column(nullable = false)
     private Integer quantidade;
