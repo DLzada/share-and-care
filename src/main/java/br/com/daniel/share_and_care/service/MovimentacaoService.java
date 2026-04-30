@@ -23,10 +23,8 @@ public class MovimentacaoService {
 
     @Transactional
     public Movimentacao registrar(MovimentacaoRequestDTO dto){
-        // 1. Busca o Item
         Item item = itemService.buscarPorId(dto.itemId());
 
-        // 2. Busca o Estoque desse Item. Se não existir ainda, cria um zerado na memória!
         Estoque estoque = estoqueRepository.findByItemId(item.getId())
                 .orElseGet(()->{
                     Estoque novoEstoque = new Estoque();
@@ -35,7 +33,6 @@ public class MovimentacaoService {
                     return novoEstoque;
                 });
 
-        // 3. A Regra Matemática
         if(dto.tipo() == TipoMovimentacao.ENTRADA){
             estoque.setQuantidadeAtual(estoque.getQuantidadeAtual() + dto.quantidade());
         } else{
