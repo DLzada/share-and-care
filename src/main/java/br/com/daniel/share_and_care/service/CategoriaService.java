@@ -2,6 +2,7 @@ package br.com.daniel.share_and_care.service;
 
 import br.com.daniel.share_and_care.domain.Categoria;
 import br.com.daniel.share_and_care.dto.CategoriaRequestDTO;
+import br.com.daniel.share_and_care.infra.exception.BusinessException;
 import br.com.daniel.share_and_care.repository.CategoriaRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -32,7 +33,7 @@ public class CategoriaService {
 
     public Categoria buscarPorId(Long id){
         return categoriaRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoria nao Encontrada!"));
+                .orElseThrow(() -> new BusinessException("Categoria com ID %d não foi encontrada no sistema", id));
     }
 
     @Transactional
