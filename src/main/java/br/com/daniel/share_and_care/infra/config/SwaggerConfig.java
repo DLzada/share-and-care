@@ -18,10 +18,13 @@ public class SwaggerConfig {
                         .description("API REST para gestão de doações e controle de estoque de alimentos.")
                         .version("v1.0.0"))
                 .components(new Components()
-                        .addSecuritySchemes("basicAuth",
+                        .addSecuritySchemes("bearer-key",
                                 new SecurityScheme()
                                         .type(SecurityScheme.Type.HTTP)
-                                        .scheme("basic")))
-                .addSecurityItem(new SecurityRequirement().addList("basicAuth"));
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT")
+                        ))
+
+                .addSecurityItem(new SecurityRequirement().addList("bearer-key"));
     }
 }
