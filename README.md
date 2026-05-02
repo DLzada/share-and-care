@@ -22,3 +22,13 @@ Este projeto implementa uma infraestrutura de segurança moderna frequentemente 
 *   **Autenticação Stateless:** A API utiliza Tokens JWT para validar cada requisição, garantindo escalabilidade e eliminando a necessidade de sessões no servidor.
 *   **Criptografia BCrypt:** Todas as senhas de usuários passam por um processo de hashing com Salt antes de serem persistidas no banco de dados.
 *   **Segurança por Filtros:** Implementação de `SecurityFilter` personalizado para interceptar e validar de forma eficiente o cabeçalho `Authorization`.
+
+## Arquitetura do Projeto
+
+O projeto foi estruturado seguindo o padrão de camadas para garantir a separação de responsabilidades e facilidade de manutenção:
+
+1.  **Controller:** Gerencia as rotas e a comunicação HTTP.
+2.  **Service:** Contém as regras de negócio e lógica da aplicação.
+3.  **Repository:** Interface de comunicação com o PostgreSQL.
+4.  **Domain/Entity:** Mapeamento das tabelas do banco de dados.
+5.  **DTO (Data Transfer Object):** Garante a segurança e a integridade dos dados trafegados entre as camadas.
