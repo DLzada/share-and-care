@@ -14,3 +14,11 @@ O **Share and Care** é uma API REST desenvolvida para gerenciar doações e est
 *   **Persistência:** Spring Data JPA + Hibernate
 *   **Banco de Dados:** PostgreSQL
 *   **Auxiliares:** Lombok, Maven, Bean Validation
+
+## ️ Funcionalidades de Segurança
+
+Este projeto implementa uma infraestrutura de segurança moderna frequentemente utilizadas em APIs REST:
+
+*   **Autenticação Stateless:** A API utiliza Tokens JWT para validar cada requisição, garantindo escalabilidade e eliminando a necessidade de sessões no servidor.
+*   **Criptografia BCrypt:** Todas as senhas de usuários passam por um processo de hashing com Salt antes de serem persistidas no banco de dados.
+*   **Segurança por Filtros:** Implementação de `SecurityFilter` personalizado para interceptar e validar de forma eficiente o cabeçalho `Authorization`.
