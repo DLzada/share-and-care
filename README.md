@@ -158,3 +158,22 @@ Para todos os endpoints das categorias 2 e 3, a requisição deve obrigatoriamen
     "senha": "123"
 }
 ```
+
+## ️ Como executar o projeto
+
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/DLzada/share-and-care.git](https://github.com/DLzada/share-and-care.git)
+
+2. Certifique-se de que o PostgreSQL esteja rodando localmente na sua máquina.
+
+3. Coloque as credenciais do seu banco local (URL, username e password) no arquivo `application.yaml` ou configure suas variáveis de ambiente em sua IDE de acordo com as nomeclaturas do arquivo.
+
+4. Certifique-se de ter o JDK 21 instalado.
+
+5. Execute o projeto via Maven:
+    ```bash
+   mvn spring-boot:run
+> Ou pela sua IDE no botão run.
+
+**Desenvolvido por Daniel Luiz** - Projeto com foco em Backend e Segurança com Java.
