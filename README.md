@@ -32,3 +32,59 @@ O projeto foi estruturado seguindo o padrão de camadas para garantir a separaç
 3.  **Repository:** Interface de comunicação com o PostgreSQL.
 4.  **Domain/Entity:** Mapeamento das tabelas do banco de dados.
 5.  **DTO (Data Transfer Object):** Garante a segurança e a integridade dos dados trafegados entre as camadas.
+
+## Endpoints da API
+A API está dividida em rotas públicas para autenticação e rotas protegidas que exigem um Token JWT válido enviado no cabeçalho Authorization.
+
+1. **Endpoints de Acesso Público** - Estes endpoints não exigem autenticação.
+    <table>
+            <thead>
+                <tr>
+                    <th>Método</th>
+                    <th>Endpoint</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>POST</td>
+                    <td><code>/usuarios</code></td>
+                    <td>Realiza o cadastro de um novo usuário. A senha é criptografada com BCrypt.</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td><code>/login</code></td>
+                    <td>Autentica o usuário e retorna o Token JWT para acesso às demais rotas.</td>
+                </tr>
+            </tbody>
+   </table>
+
+2. **Endpoints Principais (Protegidos)** - Endpoints fundamentais para a operação do sistema Share and Care.
+
+    <table>
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Endpoint</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td><code>/estoques</code></td>
+                <td>Lista todos os itens disponíveis no estoque.</td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td><code>/doadores</code></td>
+                <td>Realiza o cadastro de um novo doador.</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td><code>/doadores</code></td>
+                <td>Retornar a lista de doadores cadastrados</td>
+            </tr>
+        </tbody>
+    </table>
+   
