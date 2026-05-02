@@ -88,3 +88,60 @@ A API está dividida em rotas públicas para autenticação e rotas protegidas q
         </tbody>
     </table>
    
+3. **Endpoints de Gerenciamento (CRUD)** - Endpoints adicionais para manutenção e controle detalhado dos recursos. Exigem Token JWT.
+
+* **Gerenciamento de Itens/Estoque:**
+    <table>
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Endpoint</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td><code>/estoques/{id}</code></td>
+                <td>Busca detalhes de um item específico por ID.</td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td><code>/estoques/{id}</code></td>
+                <td>Atualiza informações de um item existente (ex: quantidade, nome).</td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td><code>/estoques/{id}</code></td>
+                <td>Remove um item do estoque.</td>
+            </tr>
+        </tbody>
+    </table>
+
+* **Gerenciamento de Doadores:**
+<table>
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Endpoint</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td><code>/doadores/{id}</code></td>
+                <td>Busca um doador específico pelo ID.</td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td><code>/doadores/{id}</code></td>
+                <td>Atualiza os dados de contato ou endereço de um doador.</td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td><code>/doadores/{id}</code></td>
+                <td>Remove um doador do sistema.</td>
+            </tr>
+        </tbody>
+    </table>
