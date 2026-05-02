@@ -145,3 +145,16 @@ A API está dividida em rotas públicas para autenticação e rotas protegidas q
             </tr>
         </tbody>
     </table>
+
+> **Informações sobre as requisições:**
+Para todos os endpoints das categorias 2 e 3, a requisição deve obrigatoriamente conter o cabeçalho de autorização:
+
+**Header:** `Authorization: Bearer <seu_token_jwt_aqui>`
+
+**Exemplo de Corpo de Requisição (JSON)** para `/usuarios` e `/login`:
+```json
+{
+    "login": "usuario",
+    "senha": "123"
+}
+```
